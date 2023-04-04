@@ -6,6 +6,7 @@
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex aut, iure adipisci atque assumenda
     quaerat tenetur quas omnis ratione eligendi dolorum. Molestias, velit? Nemo porro, reiciendis et
     totam non sint!
+    <a-button type="primary">Primary</a-button>
   </div>
 </template>
 
