@@ -7,10 +7,8 @@ let from = ref('KZT')
 let to = ref('USD')
 let amount = ref(0)
 
-const { getCurrency, getSymbols } = useCurrencyStore()
+const { getCurrency } = useCurrencyStore()
 const { transformedSymbols, loading, convertResult } = storeToRefs(useCurrencyStore())
-
-getSymbols()
 
 const handleChange = () => {
   const params = {

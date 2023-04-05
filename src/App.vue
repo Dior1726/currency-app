@@ -1,5 +1,10 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { useCurrencyStore } from './stores/currency'
+
+const { getSymbols } = useCurrencyStore()
+
+getSymbols()
 </script>
 
 <template>
