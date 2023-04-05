@@ -4,8 +4,8 @@ import CurrencyService from '../services/currency'
 export const useCurrencyStore = defineStore({
   id: 'currency',
   state: () => ({
-    rates: [],
-    symbols: [],
+    rates: null,
+    symbols: null,
     loading: false,
     convertResult: null,
   }),
@@ -26,14 +26,18 @@ export const useCurrencyStore = defineStore({
     transformedRates: (state) => {
       const result = []
 
-      for (const [key, value] of Object.entries(state.rates.rates)) {
-        result.push({
-          symbol: key,
-          value: value,
-        })
+      if (state.rates) {
+        for (const [key, value] of Object.entries(state.rates.rates)) {
+          result.push({
+            symbol: key,
+            value: value,
+          })
+        }
+
+        return result
       }
 
-      return result
+      return null
     }
   },
   actions: {
