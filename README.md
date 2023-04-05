@@ -1,6 +1,14 @@
-# currency-app
+# Currency-app
 
 This template should help get you started developing with Vue 3 in Vite.
+
+## Technologies
+
+- VUE 3
+- Pinia
+- Ant Design Vue
+- Axios
+- Vite
 
 ## Recommended IDE Setup
 
@@ -26,16 +34,4 @@ npm run dev
 
 ```sh
 npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
