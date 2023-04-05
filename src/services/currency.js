@@ -1,5 +1,6 @@
 import ApiService from './api'
-const API_KEY = "5DIWNdTaypDSN3ITzaoi6DzQXIhjvrX2"
+const API_KEY_BASE = "NURJV05kVGF5cERTTjNJVHphb2k2RHpRWEloanZyWDI="
+const API_KEY = atob(API_KEY_BASE)
 
 const CurrencyService = {
   async get(params) {
