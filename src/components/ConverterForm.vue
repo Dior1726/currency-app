@@ -47,7 +47,6 @@ const changeSymbolHandler = () => {
 }
 </script>
 
-
 <template>
   <div class="loading-message" v-if="!transformedSymbols">
     <h1>Загрузка валют...</h1>
@@ -86,7 +85,6 @@ const changeSymbolHandler = () => {
     </div>
   </div>
 </template>
-
 
 <style scoped>
 .loading-message {

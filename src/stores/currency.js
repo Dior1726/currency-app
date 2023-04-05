@@ -7,7 +7,7 @@ export const useCurrencyStore = defineStore({
     rates: null,
     symbols: null,
     loading: false,
-    convertResult: null,
+    convertResult: null
   }),
   getters: {
     transformedSymbols: (state) => {
@@ -30,7 +30,7 @@ export const useCurrencyStore = defineStore({
         for (const [key, value] of Object.entries(state.rates.rates)) {
           result.push({
             symbol: key,
-            value: value,
+            value: value
           })
         }
 
@@ -47,7 +47,7 @@ export const useCurrencyStore = defineStore({
         const response = await CurrencyService.get(payload)
         this.convertResult = response.data.result
       } catch (error) {
-        console.error(error);
+        console.error(error)
       } finally {
         this.loading = false
       }
@@ -58,7 +58,7 @@ export const useCurrencyStore = defineStore({
         const response = await CurrencyService.getSymbols(payload)
         this.symbols = response.data.symbols
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
     },
 
@@ -67,7 +67,7 @@ export const useCurrencyStore = defineStore({
         const response = await CurrencyService.getCurrencyRates()
         this.rates = response.data
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
     }
   }
