@@ -3,12 +3,15 @@ import CurrencyService from '../services/currency'
 
 export const useCurrencyStore = defineStore({
   id: 'currency',
+  
   state: () => ({
-    rates: null,
-    symbols: null,
+    rates: [],
+    symbols: [],
     loading: false,
-    convertResult: null
+    rateLoading: false,
+    convertResult: null,
   }),
+
   getters: {
     transformedSymbols: (state) => {
       const result = []
@@ -26,20 +29,17 @@ export const useCurrencyStore = defineStore({
     transformedRates: (state) => {
       const result = []
 
-      if (state.rates) {
-        for (const [key, value] of Object.entries(state.rates.rates)) {
-          result.push({
-            symbol: key,
-            value: value
-          })
-        }
-
-        return result
+      for (const [key, value] of Object.entries(state.rates.rates)) {
+        result.push({
+          symbol: key,
+          value: value
+        })
       }
 
-      return null
+      return result
     }
   },
+
   actions: {
     async getCurrency(payload) {
       this.loading = true
@@ -63,11 +63,14 @@ export const useCurrencyStore = defineStore({
     },
 
     async getCurrencyRates() {
+      this.rateLoading = true
       try {
         const response = await CurrencyService.getCurrencyRates()
         this.rates = response.data
       } catch (error) {
         console.error(error)
+      } finally {
+        this.rateLoading = false
       }
     }
   }

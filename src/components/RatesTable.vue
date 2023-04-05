@@ -2,7 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { useCurrencyStore } from '../stores/currency'
 
-const { rates, transformedRates } = storeToRefs(useCurrencyStore())
+const { rates, transformedRates, rateLoading } = storeToRefs(useCurrencyStore())
 
 const formatCurrency = (n) => {
   return n.toFixed(2)
@@ -10,7 +10,11 @@ const formatCurrency = (n) => {
 </script>
 
 <template>
-  <div class="currency-card" v-if="rates">
+  <div class="loading-message" v-if="rateLoading">
+    <h1>Загрузка валют...</h1>
+  </div>
+
+  <div class="currency-card" v-if="!rateLoading">
     <div class="table">
       <div class="table-header">
         <h4>Base currency: 1000 {{ rates.base }}</h4>
@@ -28,6 +32,11 @@ const formatCurrency = (n) => {
 </template>
 
 <style scoped>
+.loading-message {
+  text-align: center;
+  color: white;
+}
+
 .currency-card {
   max-width: 800px;
   width: 100%;
